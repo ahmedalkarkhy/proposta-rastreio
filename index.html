@@ -1,0 +1,1652 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Do Abate à Entrega · Infinite World</title>
+<link rel="icon" href="assets/iw-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #0b0d10; overflow: hidden; font-family: Inter, Arial, sans-serif; }
+  #stage { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  #canvas { position: relative; width: 1920px; height: 1080px; transform-origin: center center; flex: none; }
+  .slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; opacity: 0; pointer-events: none; transition: opacity .45s ease; font-family: Inter, Arial, sans-serif; }
+  .slide.on { opacity: 1; pointer-events: auto; }
+  .slide h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+  .slide h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+  .slide h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+  .slide p { font-size: 32px; line-height: 1.4; }
+  .slide img { display: block; }
+  .slide table { border-collapse: collapse; width: 100%; }
+  .slide th, .slide td { padding: 0.45em 0.6em; border-bottom: 1px solid rgba(21,24,29,.14); }
+  .slide th { font-weight: 600; color: #5f6873; font-size: 0.85em; }
+  #bar { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; background: rgba(17,19,23,.82); border: 1px solid #2c3139; border-radius: 30px; padding: 6px 8px; color: #b8c1ca; font: 500 13px Inter, Arial, sans-serif; opacity: 0; transition: opacity .3s; z-index: 10; }
+  body:hover #bar, #bar.show { opacity: 1; }
+  #bar button { background: none; border: 0; color: #eef1f3; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; }
+  #bar button:hover { background: #2c3139; }
+  #num { min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; }
+  #prog { position: fixed; left: 0; top: 0; height: 3px; background: #00a651; transition: width .3s; z-index: 10; }
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage"><div id="canvas">
+<section class="slide"
+  id="cover"
+  data-transition="fade"
+  style="
+    background: radial-gradient(ellipse at 85% 10%, #0f3a26 0%, #111317 55%);
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  "
+>
+  <img
+    src="assets/tela-1.png"
+    alt="Painel do sistema com mapa da frota em tempo real"
+    style="
+      position: absolute;
+      left: 740px;
+      top: 190px;
+      width: 1140px;
+      height: 641px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+      opacity: 0.92;
+    "
+  />
+  <img
+    src="assets/iw-logo.png"
+    alt="Infinite World"
+    style="
+      position: absolute;
+      left: 128px;
+      top: 96px;
+      width: 225px;
+      height: 60px;
+      object-fit: contain;
+    "
+  />
+  <p
+    style="
+      font-size: 24px;
+      font-weight: 600;
+      color: #00a651;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      width: 560px;
+    "
+  >
+    Proposta para a Prima Foods · Mataboi
+  </p>
+  <h1
+    style="
+      font-size: 76px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: #f4f6f5;
+      width: 560px;
+    "
+  >
+    Do abate à entrega, cada caixa rastreada.
+  </h1>
+  <p style="font-size: 30px; line-height: 1.4; color: #b8c1ca; width: 540px">
+    Nenhuma caixa sai sem registro. Nenhuma entrega acontece sem prova.
+  </p>
+  <p
+    style="
+      position: absolute;
+      left: 128px;
+      bottom: 64px;
+      width: 900px;
+      font-size: 24px;
+      color: #6f7a85;
+    "
+  >
+    Infinite World · Outubro de 2026
+  </p>
+  
+</section>
+
+<section class="slide" id="quem" data-transition="fade" style="display:flex; flex-direction:column; gap:48px; padding:128px 128px 160px; background:#f3f5f4">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:Inter, Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#008040">Quem somos</p>
+    <h2 style="width:1500px; font-family:Inter, Arial, sans-serif; font-size:64px; font-weight:700; line-height:1.1; letter-spacing:-1px; color:#15181d">Infinite World: tecnologia que digitaliza, audita e rentabiliza operações.</h2>
+  </div>
+  <div style="display:grid; gap:32px; grid-template-columns:1fr 1fr 1fr">
+    <div style="display:flex; flex-direction:column; gap:12px; padding:40px; background:#ffffff; border:1px solid #dde2e7; border-radius:16px">
+      <h3 style="font-family:Inter, Arial, sans-serif; font-size:36px; font-weight:700; color:#008040">Digitaliza</h3>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:28px; line-height:1.4; color:#3f4752">Cada caixa, caminhão e entrega vira um registro, sem papel.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; padding:40px; background:#ffffff; border:1px solid #dde2e7; border-radius:16px">
+      <h3 style="font-family:Inter, Arial, sans-serif; font-size:36px; font-weight:700; color:#008040">Audita</h3>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:28px; line-height:1.4; color:#3f4752">Cada registro tem hora, local e prova. Nada some sem aviso.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; padding:40px; background:#ffffff; border:1px solid #dde2e7; border-radius:16px">
+      <h3 style="font-family:Inter, Arial, sans-serif; font-size:36px; font-weight:700; color:#008040">Rentabiliza</h3>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:28px; line-height:1.4; color:#3f4752">Mostra onde a operação perde dinheiro e corta a perda.</p>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:32px">
+    <div style="display:flex; flex-direction:column; gap:4px; flex:1; padding:0 0 0 24px; border-left:4px solid #d01028">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:30px; font-weight:700; color:#15181d">[Nome do sócio 1]</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:26px; color:#5f6873">[Cargo e experiência em uma linha]</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px; flex:1; padding:0 0 0 24px; border-left:4px solid #d01028">
+      <p style="font-family:Inter, Arial, sans-serif; font-size:30px; font-weight:700; color:#15181d">[Nome do sócio 2]</p>
+      <p style="font-family:Inter, Arial, sans-serif; font-size:26px; color:#5f6873">[Cargo e experiência em uma linha]</p>
+    </div>
+  </div>
+  
+</section>
+
+<section class="slide"
+  id="empresa"
+  data-transition="fade"
+  style="
+    background: #111317;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #00a651;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      A Prima Foods que vemos
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #f4f6f5;
+        width: 1500px;
+      "
+    >
+      Uma empresa em expansão, com o mundo como cliente.
+    </h2>
+  </div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 24px">
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p
+        style="
+          font-size: 72px;
+          font-weight: 700;
+          color: #00a651;
+          letter-spacing: -2px;
+          line-height: 1.1;
+        "
+      >
+        R$ 3,6 bi
+      </p>
+      <p style="font-size: 26px; line-height: 1.4; color: #b8c1ca">
+        de faturamento em 2025
+      </p>
+    </div>
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p
+        style="
+          font-size: 72px;
+          font-weight: 700;
+          color: #00a651;
+          letter-spacing: -2px;
+          line-height: 1.1;
+        "
+      >
+        ~70%
+      </p>
+      <p style="font-size: 26px; line-height: 1.4; color: #b8c1ca">
+        da receita vem da exportação
+      </p>
+    </div>
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p
+        style="
+          font-size: 72px;
+          font-weight: 700;
+          color: #00a651;
+          letter-spacing: -2px;
+          line-height: 1.1;
+        "
+      >
+        4
+      </p>
+      <p style="font-size: 26px; line-height: 1.4; color: #b8c1ca">
+        unidades de abate: MG, GO, MS e RO
+      </p>
+    </div>
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p
+        style="
+          font-size: 72px;
+          font-weight: 700;
+          color: #00a651;
+          letter-spacing: -2px;
+          line-height: 1.1;
+        "
+      >
+        R$ 5 bi
+      </p>
+      <p style="font-size: 26px; line-height: 1.4; color: #b8c1ca">
+        meta de faturamento para 2027
+      </p>
+    </div>
+  </div>
+  <p style="font-size: 32px; line-height: 1.4; color: #b8c1ca; width: 1500px">
+    Mais unidades, mais rotas e mais países significam mais caixas na estrada. É
+    exatamente aí que o controle costuma escapar.
+  </p>
+  <p
+    style="
+      position: absolute;
+      left: 128px;
+      bottom: 64px;
+      width: 1600px;
+      font-size: 24px;
+      color: #6f7a85;
+    "
+  >
+    Fontes: AgFeed (2026), AgroTV News (jul. 2026), site da Prima Foods. Unidade
+    de Ji-Paraná (RO) em aquisição, sujeita ao CADE.
+  </p>
+  
+</section>
+
+<section class="slide"
+  id="pontocego"
+  data-transition="fade"
+  style="
+    background: #0b6b3a;
+    color: #f4f6f5;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 64px;
+  "
+>
+  <p
+    style="
+      font-size: 24px;
+      font-weight: 600;
+      color: #bfe8d0;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    "
+  >
+    O ponto cego
+  </p>
+  <h2
+    style="
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      color: #f4f6f5;
+      width: 1560px;
+    "
+  >
+    Dentro da fábrica, tudo é controlado. Depois que o caminhão sai, quem
+    responde é o motorista.
+  </h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 24px">
+    <p
+      style="
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.3;
+        background: #0f5a33;
+        border-radius: 14px;
+        padding: 28px;
+      "
+    >
+      Onde está a carga agora?
+    </p>
+    <p
+      style="
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.3;
+        background: #0f5a33;
+        border-radius: 14px;
+        padding: 28px;
+      "
+    >
+      Chegou inteira?
+    </p>
+    <p
+      style="
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.3;
+        background: #0f5a33;
+        border-radius: 14px;
+        padding: 28px;
+      "
+    >
+      Na temperatura certa?
+    </p>
+    <p
+      style="
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.3;
+        background: #0f5a33;
+        border-radius: 14px;
+        padding: 28px;
+      "
+    >
+      Ao cliente certo?
+    </p>
+  </div>
+  
+</section>
+
+<section class="slide"
+  id="prejuizo"
+  data-transition="fade"
+  style="
+    background: #111317;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #00a651;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      O tamanho do prejuízo
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #f4f6f5;
+        width: 1500px;
+      "
+    >
+      Alimentos estão entre as cargas mais visadas do Brasil.
+    </h2>
+  </div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-top: 4px solid #d01028;
+        padding: 32px 0 0 0;
+      "
+    >
+      <p
+        style="
+          font-size: 96px;
+          font-weight: 700;
+          color: #f4f6f5;
+          letter-spacing: -3px;
+          line-height: 1;
+        "
+      >
+        8.570
+      </p>
+      <p style="font-size: 28px; line-height: 1.4; color: #b8c1ca">
+        roubos de carga no país em 2025
+      </p>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-top: 4px solid #d01028;
+        padding: 32px 0 0 0;
+      "
+    >
+      <p
+        style="
+          font-size: 96px;
+          font-weight: 700;
+          color: #f4f6f5;
+          letter-spacing: -3px;
+          line-height: 1;
+        "
+      >
+        R$ 900 mi
+      </p>
+      <p style="font-size: 28px; line-height: 1.4; color: #b8c1ca">
+        de perda direta, e mais de R$ 1 bi com custos indiretos
+      </p>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-top: 4px solid #d01028;
+        padding: 32px 0 0 0;
+      "
+    >
+      <p
+        style="
+          font-size: 96px;
+          font-weight: 700;
+          color: #f4f6f5;
+          letter-spacing: -3px;
+          line-height: 1;
+        "
+      >
+        24,6%
+      </p>
+      <p style="font-size: 28px; line-height: 1.4; color: #b8c1ca">
+        das perdas no 1.º semestre de 2026 foram de alimentos
+      </p>
+    </div>
+  </div>
+  <p style="font-size: 32px; line-height: 1.4; color: #b8c1ca; width: 1560px">
+    E o roubo ficou mais sofisticado: quadrilhas já usam
+    <b style="color: #f4f6f5">bloqueadores de sinal de GPS</b>. Rastrear só o
+    caminhão não basta mais.
+  </p>
+  <p
+    style="
+      position: absolute;
+      left: 128px;
+      bottom: 64px;
+      width: 1660px;
+      font-size: 24px;
+      color: #6f7a85;
+    "
+  >
+    Fontes: NTC&amp;Logística (2025), relatório Nstech via SETCJF (1.º sem.
+    2026), O Tempo (PRF, jun. 2026). Não há estatística pública separada para
+    carne.
+  </p>
+  
+</section>
+
+<section class="slide"
+  id="custo"
+  data-transition="fade"
+  style="
+    background: #f3f5f4;
+    color: #15181d;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #008040;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      A conta de vocês
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #15181d;
+        width: 1500px;
+      "
+    >
+      Quanto a carga perdida custa para a Prima Foods?
+    </h2>
+  </div>
+  <div style="display: flex; align-items: center; gap: 24px">
+    <div
+      style="
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 56px; font-weight: 700; color: #b9c0c8">______</p>
+      <p style="font-size: 26px; color: #3f4752">caixas expedidas por mês</p>
+    </div>
+    <p style="font-size: 56px; font-weight: 300; color: #5f6873">×</p>
+    <div
+      style="
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 56px; font-weight: 700; color: #b9c0c8">____ %</p>
+      <p style="font-size: 26px; color: #3f4752">
+        perdidas, desviadas ou devolvidas
+      </p>
+    </div>
+    <p style="font-size: 56px; font-weight: 300; color: #5f6873">×</p>
+    <div
+      style="
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 56px; font-weight: 700; color: #b9c0c8">R$ ____</p>
+      <p style="font-size: 26px; color: #3f4752">valor médio de uma caixa</p>
+    </div>
+    <p style="font-size: 56px; font-weight: 300; color: #5f6873">=</p>
+    <div
+      style="
+        flex: 1;
+        background: #15181d;
+        border-radius: 16px;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 56px; font-weight: 700; color: #00a651">R$ ____</p>
+      <p style="font-size: 26px; color: #b8c1ca">de perda por mês</p>
+    </div>
+  </div>
+  <p style="font-size: 32px; line-height: 1.4; color: #3f4752; width: 1500px">
+    Preenchemos juntos, com os números de vocês. Somam-se ainda as avarias, as
+    reclamações de clientes e as horas de conferência na doca.
+  </p>
+  
+</section>
+
+<section class="slide"
+  id="exigencia"
+  data-transition="fade"
+  style="
+    background: #111317;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #00a651;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      Quem compra está exigindo
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #f4f6f5;
+        width: 1500px;
+      "
+    >
+      O mercado quer saber de onde veio e para onde foi cada caixa.
+    </h2>
+  </div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px">
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      "
+    >
+      <p
+        style="
+          font-size: 24px;
+          font-weight: 700;
+          color: #d01028;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        "
+      >
+        China
+      </p>
+      <h3
+        style="
+          font-size: 36px;
+          font-weight: 700;
+          line-height: 1.2;
+          color: #f4f6f5;
+        "
+      >
+        Tolerância zero
+      </h3>
+      <p style="font-size: 26px; line-height: 1.45; color: #b8c1ca">
+        Em maio de 2026, três frigoríficos brasileiros foram suspensos por
+        resíduo de hormônio. Responder rápido qual lote foi para onde é o que
+        pesa na reabilitação.
+      </p>
+    </div>
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      "
+    >
+      <p
+        style="
+          font-size: 24px;
+          font-weight: 700;
+          color: #00a651;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        "
+      >
+        Brasil
+      </p>
+      <h3
+        style="
+          font-size: 36px;
+          font-weight: 700;
+          line-height: 1.2;
+          color: #f4f6f5;
+        "
+      >
+        Gado identificado
+      </h3>
+      <p style="font-size: 26px; line-height: 1.45; color: #b8c1ca">
+        O plano nacional de identificação individual prevê que, a partir de
+        2033, nenhum bovino circule sem identificação.
+      </p>
+    </div>
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      "
+    >
+      <p
+        style="
+          font-size: 24px;
+          font-weight: 700;
+          color: #8fa3b8;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        "
+      >
+        Europa
+      </p>
+      <h3
+        style="
+          font-size: 36px;
+          font-weight: 700;
+          line-height: 1.2;
+          color: #f4f6f5;
+        "
+      >
+        Origem comprovada
+      </h3>
+      <p style="font-size: 26px; line-height: 1.45; color: #b8c1ca">
+        A partir de 30/12/2026, quem vende carne para a União Europeia precisa
+        provar a origem sem desmatamento.
+      </p>
+    </div>
+  </div>
+  <p
+    style="
+      position: absolute;
+      left: 128px;
+      bottom: 64px;
+      width: 1660px;
+      font-size: 24px;
+      color: #6f7a85;
+    "
+  >
+    Fontes: Reuters e Globo Rural (mai. 2026), MAPA e Minerva Foods sobre o
+    PNIB, Parlamento Europeu (dez. 2025).
+  </p>
+  
+</section>
+
+<section class="slide"
+  id="fluxo"
+  data-transition="fade"
+  style="
+    background: #f3f5f4;
+    color: #15181d;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #008040;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      A solução
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #15181d;
+        width: 1500px;
+      "
+    >
+      Do abate à entrega, uma corrente sem elo solto.
+    </h2>
+  </div>
+  <div style="display: flex; align-items: stretch; gap: 16px">
+    <div
+      style="
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #008040">1</p>
+      <h3 style="font-size: 30px; font-weight: 700">Produção</h3>
+      <p style="font-size: 24px; line-height: 1.45; color: #3f4752">
+        O lote do abate vira um QR Code em cada caixa.
+      </p>
+    </div>
+    <svg width="32" height="16" viewBox="0 0 32 16" style="flex:none;align-self:center"><path d="M0 5h19V0l13 8-13 8v-5H0z" fill="#9aa4ae"/></svg>
+    <div
+      style="
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #008040">2</p>
+      <h3 style="font-size: 30px; font-weight: 700">Expedição</h3>
+      <p style="font-size: 24px; line-height: 1.45; color: #3f4752">
+        Cada caixa é lida na doca. O caminhão só sai se bater com o pedido.
+      </p>
+    </div>
+    <svg width="32" height="16" viewBox="0 0 32 16" style="flex:none;align-self:center"><path d="M0 5h19V0l13 8-13 8v-5H0z" fill="#9aa4ae"/></svg>
+    <div
+      style="
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #008040">3</p>
+      <h3 style="font-size: 30px; font-weight: 700">Viagem</h3>
+      <p style="font-size: 24px; line-height: 1.45; color: #3f4752">
+        GPS, temperatura do baú, câmera e leitor de QR na porta.
+      </p>
+    </div>
+    <svg width="32" height="16" viewBox="0 0 32 16" style="flex:none;align-self:center"><path d="M0 5h19V0l13 8-13 8v-5H0z" fill="#9aa4ae"/></svg>
+    <div
+      style="
+        flex: 1;
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #008040">4</p>
+      <h3 style="font-size: 30px; font-weight: 700">Entrega</h3>
+      <p style="font-size: 24px; line-height: 1.45; color: #3f4752">
+        Leitura, foto, localização e assinatura do cliente.
+      </p>
+    </div>
+    <svg width="32" height="16" viewBox="0 0 32 16" style="flex:none;align-self:center"><path d="M0 5h19V0l13 8-13 8v-5H0z" fill="#9aa4ae"/></svg>
+    <div
+      style="
+        flex: 1;
+        background: #15181d;
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #00a651">5</p>
+      <h3 style="font-size: 30px; font-weight: 700; color: #f4f6f5">Painel</h3>
+      <p style="font-size: 24px; line-height: 1.45; color: #b8c1ca">
+        A diretoria vê onde está cada caixa e onde se perde.
+      </p>
+    </div>
+  </div>
+  <p
+    style="
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #15181d;
+      width: 1600px;
+    "
+  >
+    Nenhuma caixa sai sem registro.
+    <span style="color: #008040">Nenhuma entrega acontece sem prova.</span>
+  </p>
+  
+</section>
+
+<section class="slide"
+  id="caminhao"
+  data-transition="fade"
+  style="
+    background: #111317;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #00a651;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      O caminhão inteligente
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #f4f6f5;
+        width: 1500px;
+      "
+    >
+      O baú avisa sozinho quando algo sai do normal.
+    </h2>
+  </div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; align-items: center; gap: 20px">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#d01028" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M12 3 2 21h20L12 3z"/><path d="M12 10v5"/><path d="M12 18h.01"/></svg>
+        <p style="font-size: 30px; color: #eef1f3">
+          Porta aberta fora do ponto de entrega
+        </p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f2a51a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+        <p style="font-size: 30px; color: #eef1f3">
+          Temperatura do baú fora da faixa
+        </p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f2a51a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></svg>
+        <p style="font-size: 30px; color: #eef1f3">Desvio de rota</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 20px">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f2a51a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <p style="font-size: 30px; color: #eef1f3">Parada não prevista</p>
+      </div>
+    </div>
+    <div
+      style="
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      "
+    >
+      <h3 style="font-size: 36px; font-weight: 700; color: #f4f6f5">
+        A câmera como testemunha
+      </h3>
+      <p style="font-size: 26px; line-height: 1.45; color: #b8c1ca">
+        A câmera no baú conta cada caixa que sai e lê o QR quando consegue. O
+        registro oficial é a leitura no aplicativo.
+      </p>
+      <div style="display: flex; gap: 16px">
+        <p
+          style="
+            font-size: 30px;
+            font-weight: 700;
+            background: #2a1418;
+            color: #ff8a98;
+            border-radius: 12px;
+            padding: 16px 24px;
+          "
+        >
+          14 saíram
+        </p>
+        <p
+          style="
+            font-size: 30px;
+            font-weight: 700;
+            background: #2a1418;
+            color: #ff8a98;
+            border-radius: 12px;
+            padding: 16px 24px;
+          "
+        >
+          12 registradas
+        </p>
+      </div>
+      <p style="font-size: 26px; line-height: 1.45; color: #b8c1ca">
+        Os números não batem: a diretoria recebe o alerta com o vídeo da
+        descarga.
+      </p>
+    </div>
+  </div>
+  
+</section>
+
+<section class="slide"
+  id="tela-painel"
+  data-transition="fade"
+  style="
+    background: #0b0d10;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  "
+>
+  <img
+    src="assets/tela-1.png"
+    alt="Painel da diretoria com indicadores do dia, mapa da frota em tempo real, alertas e perda por rota"
+    style="
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    "
+  />
+  
+</section>
+
+<section class="slide"
+  id="tela-doca"
+  data-transition="fade"
+  style="
+    background: #0b0d10;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  "
+>
+  <img
+    src="assets/tela-2.png"
+    alt="Tela de expedição na doca: 48 de 50 caixas lidas e liberação do caminhão bloqueada"
+    style="
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    "
+  />
+  
+</section>
+
+<section class="slide"
+  id="tela-motorista"
+  data-transition="fade"
+  style="
+    background: #0b0d10;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  "
+>
+  <img
+    src="assets/tela-3.png"
+    alt="Aplicativo do motorista confirmando a entrega com leitura das caixas, temperatura, localização, foto e assinatura"
+    style="
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    "
+  />
+  
+</section>
+
+<section class="slide"
+  id="tela-lote"
+  data-transition="fade"
+  style="
+    background: #0b0d10;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  "
+>
+  <img
+    src="assets/tela-4.png"
+    alt="Rastreio de um lote do abate à entrega, com temperatura e destino de cada caixa"
+    style="
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    "
+  />
+  
+</section>
+
+<section class="slide"
+  id="diferencial"
+  data-transition="fade"
+  style="
+    background: #f3f5f4;
+    color: #15181d;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #008040;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      Por que nós
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #15181d;
+        width: 1500px;
+      "
+    >
+      Os outros rastreiam o caminhão. Nós rastreamos a caixa.
+    </h2>
+  </div>
+  <table
+    style="
+      font-family: &quot;Inter&quot;, Arial, sans-serif;
+      font-size: 28px;
+      color: #15181d;
+    "
+  >
+    <tr>
+      <th style="width: 52%; text-align: left">
+        O que a diretoria consegue saber
+      </th>
+      <th style="width: 24%; text-align: center">Rastreador de frota comum</th>
+      <th style="width: 24%; text-align: center">Infinite World</th>
+    </tr>
+    <tr>
+      <td>Onde está o caminhão</td>
+      <td style="text-align: center; color: #5f6873">Sim</td>
+      <td style="text-align: center; color: #008040">Sim</td>
+    </tr>
+    <tr>
+      <td>Temperatura do baú</td>
+      <td style="text-align: center; color: #5f6873">Sim</td>
+      <td style="text-align: center; color: #008040">Sim</td>
+    </tr>
+    <tr style="background: #e9f2ec">
+      <td>Qual caixa está em qual caminhão</td>
+      <td style="text-align: center; color: #b0112a">Não</td>
+      <td style="text-align: center; color: #008040">Sim</td>
+    </tr>
+    <tr style="background: #e9f2ec">
+      <td>Caminhão só sai com o pedido conferido</td>
+      <td style="text-align: center; color: #b0112a">Não</td>
+      <td style="text-align: center; color: #008040">Sim</td>
+    </tr>
+    <tr style="background: #e9f2ec">
+      <td>Prova de entrega com foto, local e assinatura</td>
+      <td style="text-align: center; color: #b0112a">Não</td>
+      <td style="text-align: center; color: #008040">Sim</td>
+    </tr>
+    <tr style="background: #e9f2ec">
+      <td>Do lote do abate até o cliente final</td>
+      <td style="text-align: center; color: #b0112a">Não</td>
+      <td style="text-align: center; color: #008040">Sim</td>
+    </tr>
+  </table>
+  <p
+    style="
+      position: absolute;
+      left: 128px;
+      bottom: 64px;
+      width: 1660px;
+      font-size: 24px;
+      color: #5f6873;
+    "
+  >
+    Comparação com o material público de rastreadores de frota (Omnilink,
+    Opentech, Michelin Connected Fleet, Angellira). Rastreador comum: de R$ 30 a
+    mais de R$ 100 por veículo por mês (Infleet, 2026).
+  </p>
+  
+</section>
+
+<section class="slide"
+  id="fazenda"
+  data-transition="fade"
+  style="
+    background: radial-gradient(ellipse at 15% 90%, #0f3a26 0%, #111317 60%);
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 48px;
+  "
+>
+  <p
+    style="
+      font-size: 24px;
+      font-weight: 600;
+      color: #00a651;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    "
+  >
+    Fase 2
+  </p>
+  <h2
+    style="
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      color: #f4f6f5;
+      width: 1500px;
+    "
+  >
+    Hoje, da fábrica ao cliente. Amanhã, da fazenda ao cliente.
+  </h2>
+  <p style="font-size: 32px; line-height: 1.45; color: #b8c1ca; width: 1450px">
+    O resíduo de hormônio que fecha mercados vem da fazenda, não da fábrica. Na
+    fase 2, o sistema passa a cuidar também da origem do gado.
+  </p>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px">
+    <p
+      style="
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.35;
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 14px;
+        padding: 28px;
+      "
+    >
+      Nota de risco para cada fazenda fornecedora
+    </p>
+    <p
+      style="
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.35;
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 14px;
+        padding: 28px;
+      "
+    >
+      Animal em prazo de espera fica fora do lote da China
+    </p>
+    <p
+      style="
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.35;
+        background: #1b1e23;
+        border: 1px solid #2c3139;
+        border-radius: 14px;
+        padding: 28px;
+      "
+    >
+      Indica quais lotes testar antes do embarque
+    </p>
+  </div>
+  
+</section>
+
+<section class="slide"
+  id="tela-fornecedores"
+  data-transition="fade"
+  style="
+    background: #0b0d10;
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  "
+>
+  <img
+    src="assets/tela-5.png"
+    alt="Tela de fornecedores de gado com nota de risco por fazenda e bloqueio de animais do lote para a China"
+    style="
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+    "
+  />
+  
+</section>
+
+<section class="slide"
+  id="piloto"
+  data-transition="fade"
+  style="
+    background: #f3f5f4;
+    color: #15181d;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  "
+>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <p
+      style="
+        font-size: 24px;
+        font-weight: 600;
+        color: #008040;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      "
+    >
+      A proposta
+    </p>
+    <h2
+      style="
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: #15181d;
+        width: 1500px;
+      "
+    >
+      Piloto de 90 dias em Araguari, com resultado medido.
+    </h2>
+  </div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px">
+    <div
+      style="
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      "
+    >
+      <h3 style="font-size: 36px; font-weight: 700; color: #008040">Escopo</h3>
+      <p style="font-size: 26px; line-height: 1.45; color: #3f4752">
+        Unidade de Araguari, de 5 a 10 caminhões, rotas escolhidas junto com
+        vocês.
+      </p>
+    </div>
+    <div
+      style="
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      "
+    >
+      <h3 style="font-size: 36px; font-weight: 700; color: #008040">
+        O que entra
+      </h3>
+      <p style="font-size: 26px; line-height: 1.45; color: #3f4752">
+        QR por caixa, conferência na doca, caminhões com GPS, temperatura e
+        câmera, aplicativo do motorista e painel.
+      </p>
+    </div>
+    <div
+      style="
+        background: #ffffff;
+        border: 1px solid #dde2e7;
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      "
+    >
+      <h3 style="font-size: 36px; font-weight: 700; color: #008040">
+        O que medimos
+      </h3>
+      <p style="font-size: 26px; line-height: 1.45; color: #3f4752">
+        Caixas divergentes, reclamações de clientes, ocorrências de temperatura
+        e tempo para saber onde está a carga.
+      </p>
+    </div>
+  </div>
+  <div
+    style="
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      background: #15181d;
+      border-radius: 16px;
+      padding: 32px 40px;
+    "
+  >
+    <p style="font-size: 30px; font-weight: 600; color: #f4f6f5">
+      Investimento do piloto:
+    </p>
+    <p style="font-size: 30px; font-weight: 700; color: #00a651">[R$ ____]</p>
+    <p style="font-size: 26px; color: #b8c1ca">
+      · indicadores combinados antes de começar
+    </p>
+  </div>
+  
+</section>
+
+<section class="slide"
+  id="proximos"
+  data-transition="fade"
+  style="
+    background: radial-gradient(ellipse at 85% 10%, #0f3a26 0%, #111317 55%);
+    color: #eef1f3;
+    font-family: &quot;Inter&quot;, Arial, sans-serif;
+    padding: 128px 128px 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 56px;
+  "
+>
+  <p
+    style="
+      font-size: 24px;
+      font-weight: 600;
+      color: #00a651;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    "
+  >
+    Próximo passo
+  </p>
+  <h2
+    style="
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      color: #f4f6f5;
+      width: 1500px;
+    "
+  >
+    Uma visita técnica à expedição de Araguari.
+  </h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px">
+    <div
+      style="
+        border-top: 4px solid #00a651;
+        padding: 28px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #00a651">1</p>
+      <p style="font-size: 28px; line-height: 1.4; color: #eef1f3">
+        Visita técnica à doca e aos caminhões, na próxima semana
+      </p>
+    </div>
+    <div
+      style="
+        border-top: 4px solid #00a651;
+        padding: 28px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #00a651">2</p>
+      <p style="font-size: 28px; line-height: 1.4; color: #eef1f3">
+        Números de perda de vocês e escolha das rotas do piloto
+      </p>
+    </div>
+    <div
+      style="
+        border-top: 4px solid #00a651;
+        padding: 28px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      "
+    >
+      <p style="font-size: 44px; font-weight: 700; color: #00a651">3</p>
+      <p style="font-size: 28px; line-height: 1.4; color: #eef1f3">
+        Início do piloto de 90 dias
+      </p>
+    </div>
+  </div>
+  <img
+    src="assets/iw-logo.png"
+    alt="Infinite World"
+    style="
+      position: absolute;
+      left: 128px;
+      bottom: 56px;
+      width: 225px;
+      height: 60px;
+      object-fit: contain;
+    "
+  />
+  
+</section>
+
+</div></div>
+<div id="bar">
+  <button id="prev" aria-label="Slide anterior">&#8592;</button>
+  <span id="num"></span>
+  <button id="next" aria-label="Próximo slide">&#8594;</button>
+  <button id="fs" aria-label="Tela cheia">&#x26F6;</button>
+</div>
+<script>
+  const S = [...document.querySelectorAll('.slide')], canvas = document.getElementById('canvas');
+  let i = Math.max(0, Math.min(S.length - 1, (parseInt(location.hash.slice(1)) || 1) - 1));
+  function fit() { const k = Math.min(innerWidth / 1920, innerHeight / 1080); canvas.style.transform = 'scale(' + k + ')'; }
+  function show(n) {
+    i = Math.max(0, Math.min(S.length - 1, n));
+    S.forEach((s, j) => s.classList.toggle('on', j === i));
+    document.getElementById('num').textContent = (i + 1) + ' / ' + S.length;
+    document.getElementById('prog').style.width = ((i + 1) / S.length * 100) + '%';
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  addEventListener('resize', fit);
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(S.length - 1);
+    if (e.key === 'f' || e.key === 'F') toggleFs();
+  });
+  function toggleFs() { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  document.getElementById('prev').onclick = () => show(i - 1);
+  document.getElementById('next').onclick = () => show(i + 1);
+  document.getElementById('fs').onclick = toggleFs;
+  document.getElementById('stage').addEventListener('click', e => { e.clientX > innerWidth / 3 ? show(i + 1) : show(i - 1); });
+  let x0 = null;
+  addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  fit(); show(i);
+</script>
+</body>
+</html>
