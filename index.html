@@ -499,7 +499,7 @@
               style="position: absolute; left: 128px; top: 96px; height: 58px"
             />
             <p class="eyebrow a" style="--d: 100">
-              Proposta para a Prima Foods · Mataboi
+              Proposta · Prima Foods (Mataboi)
             </p>
             <h1
               class="a"
@@ -2919,7 +2919,7 @@
             el.textContent = pre + fmt(end * e, dec) + suf;
             if (p < 1) requestAnimationFrame(tick);
           };
-          el.textContent = pre + fmt(0, dec) + suf;
+          el.textContent = pre + fmt(0, dec) + suf; setTimeout(() => { el.textContent = pre + fmt(end, dec) + suf; }, 2600);
           requestAnimationFrame(tick);
         });
       }
