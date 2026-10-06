@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,11 +8,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Infinite World">
 <meta name="theme-color" content="#0f1114">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
     <meta name="robots" content="noindex, nofollow" />
     <title>Do Abate à Entrega · Infinite World</title>
-    <link rel="icon" href="assets/iw-logo.png" />
+    <link rel="icon" href="../assets/iw-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -428,14 +428,15 @@
   #langs { position: fixed; top: 12px; right: 14px; z-index: 15; display: flex; gap: 4px; background: rgba(17,19,23,.72); border: 1px solid #2c3139; border-radius: 20px; padding: 3px; font: 600 12px Inter, Arial, sans-serif; }
   #langs a { color: #b8c1ca; padding: 5px 10px; border-radius: 16px; cursor: pointer; text-decoration: none; }
   #langs a.cur { background: #00a651; color: #fff; }
+.big { font-size: 64px; letter-spacing: -2px; }
 </style>
   </head>
   <body>
     <div id="prog"></div>
 <div id="langs"><a data-l="pt">PT</a><a data-l="es">ES</a><a data-l="fr">FR</a></div>
 
-<div id="tip" onclick="this.style.display='none'">No iPhone: toque em Compartilhar e depois em <b>Adicionar à Tela de Início</b>. Abrindo pelo ícone, a apresentação fica em tela cheia. Toque para fechar.</div>
-<div id="rotate" onclick="this.remove()">Gire o celular na horizontal para ver melhor · toque para fechar</div>
+<div id="tip" onclick="this.style.display='none'">Sur iPhone&nbsp;: touchez Partager puis <b>Sur l'écran d'accueil</b>. En ouvrant depuis l'icône, la présentation s'affiche en plein écran. Touchez pour fermer.</div>
+<div id="rotate" onclick="this.remove()">Tournez le téléphone à l'horizontale pour mieux voir · touchez pour fermer</div>
     <div id="stage">
       <div id="canvas">
         <!-- 1 · CAPA -->
@@ -503,8 +504,8 @@
           >
             <div class="float">
               <img
-                src="assets/tela-1.jpg"
-                alt="Painel do sistema"
+                src="../assets/fr/tela-1.jpg"
+                alt="Tableau de bord du système"
                 style="
                   width: 1080px;
                   height: 608px;
@@ -523,12 +524,12 @@
           >
             <img
               class="a fade"
-              src="assets/iw-logo.png"
+              src="../assets/iw-logo.png"
               alt="Infinite World"
               style="position: absolute; left: 128px; top: 96px; height: 58px"
             />
             <p class="eyebrow a" style="--d: 100">
-              Proposta · Prima Foods (Mataboi)
+              Proposition · Prima Foods (Mataboi)
             </p>
             <h1
               class="a"
@@ -541,15 +542,14 @@
                 color: #f4f6f5;
               "
             >
-              Do abate à entrega, cada caixa rastreada.
+              De l'abattage à la livraison, chaque carton est tracé.
             </h1>
             <p class="lead a" style="--d: 400; font-size: 30px; width: 560px">
-              Nenhuma caixa sai sem registro. Nenhuma entrega acontece sem
-              prova.
+              Aucun carton ne sort sans enregistrement. Aucune livraison n'a lieu sans preuve.
             </p>
           </div>
           <p class="src a fade" style="--d: 800">
-            Infinite World · Outubro de 2026
+            Infinite World · Octobre 2026
           </p>
         </section>
 
@@ -557,10 +557,9 @@
         <section class="slide light">
           <div class="pad" style="justify-content: center; gap: 64px">
             <div>
-              <p class="eyebrow a">Quem somos</p>
+              <p class="eyebrow a">Qui sommes-nous</p>
               <h2 class="h2 a" style="--d: 120; font-size: 72px; width: 1500px">
-                Infinite World: tecnologia que digitaliza, audita e rentabiliza
-                operações.
+                Infinite World&nbsp;: la technologie qui numérise, audite et rentabilise les opérations.
               </h2>
             </div>
             <div
@@ -624,10 +623,10 @@
                   />
                 </svg>
                 <h3 style="font-size: 44px; font-weight: 700; color: #008040">
-                  Digitaliza
+                  Numérise
                 </h3>
                 <p style="font-size: 30px; line-height: 1.45; color: #3f4752">
-                  Cada caixa, caminhão e entrega vira um registro, sem papel.
+                  Chaque carton, camion et livraison devient un enregistrement, sans papier.
                 </p>
               </div>
               <div
@@ -664,10 +663,10 @@
                   />
                 </svg>
                 <h3 style="font-size: 44px; font-weight: 700; color: #008040">
-                  Audita
+                  Audite
                 </h3>
                 <p style="font-size: 30px; line-height: 1.45; color: #3f4752">
-                  Cada registro tem hora, local e prova. Nada some sem aviso.
+                  Chaque enregistrement a une heure, un lieu et une preuve. Rien ne disparaît sans alerte.
                 </p>
               </div>
               <div
@@ -710,10 +709,10 @@
                   />
                 </svg>
                 <h3 style="font-size: 44px; font-weight: 700; color: #008040">
-                  Rentabiliza
+                  Rentabilise
                 </h3>
                 <p style="font-size: 30px; line-height: 1.45; color: #3f4752">
-                  Mostra onde a operação perde dinheiro e corta a perda.
+                  Montre où l'opération perd de l'argent et réduit la perte.
                 </p>
               </div>
             </div>
@@ -723,9 +722,9 @@
         <!-- 3 · A EMPRESA -->
         <section class="slide dark">
           <div class="pad">
-            <p class="eyebrow a">A Prima Foods que vemos</p>
+            <p class="eyebrow a">Prima Foods vue par nous</p>
             <h2 class="h2 a" style="--d: 120; width: 1000px">
-              Uma empresa em expansão, com o mundo como cliente.
+              Une entreprise en expansion, avec le monde pour client.
             </h2>
             <div
               style="
@@ -742,13 +741,13 @@
                   style="color: var(--gr)"
                   data-count="3.6"
                   data-dec="1"
-                  data-pre="R$ "
-                  data-suf=" bi"
+                  data-pre=""
+                  data-suf=" Md R$"
                 >
-                  R$ 3,6 bi
+                  3,6 Md R$
                 </p>
                 <p class="lead" style="font-size: 26px; margin-top: 14px">
-                  de faturamento em 2025
+                  de chiffre d'affaires en 2025
                 </p>
               </div>
               <div class="card a" style="--d: 420">
@@ -757,18 +756,18 @@
                   style="color: var(--gr)"
                   data-count="70"
                   data-pre="~"
-                  data-suf="%"
+                  data-suf=" %"
                 >
                   ~70%
                 </p>
                 <p class="lead" style="font-size: 26px; margin-top: 14px">
-                  da receita vem da exportação
+                  du chiffre d'affaires vient de l'export
                 </p>
               </div>
               <div class="card a" style="--d: 540">
                 <p class="big" style="color: var(--gr)" data-count="4">4</p>
                 <p class="lead" style="font-size: 26px; margin-top: 14px">
-                  unidades de abate em 4 estados
+                  sites d'abattage dans 4 États
                 </p>
               </div>
               <div class="card a" style="--d: 660">
@@ -776,13 +775,13 @@
                   class="big"
                   style="color: var(--gr)"
                   data-count="5"
-                  data-pre="R$ "
-                  data-suf=" bi"
+                  data-pre=""
+                  data-suf=" Md R$"
                 >
-                  R$ 5 bi
+                  5 Md R$
                 </p>
                 <p class="lead" style="font-size: 26px; margin-top: 14px">
-                  meta de faturamento para 2027
+                  objectif de chiffre d'affaires pour 2027
                 </p>
               </div>
             </div>
@@ -832,12 +831,12 @@
               fill="#9aa4ae"
             >
               <text x="476" y="292" class="a fade" style="--d: 2400">
-                China
+                Chine
               </text>
               <text x="456" y="440" class="a fade" style="--d: 2500">
-                Oriente Médio
+                Moyen-Orient
               </text>
-              <text x="96" y="512" class="a fade" style="--d: 2600">Chile</text>
+              <text x="96" y="512" class="a fade" style="--d: 2600">Chili</text>
             </g>
             <g>
               <circle cx="361" cy="345" r="7" fill="#00a651" class="pulse" />
@@ -915,20 +914,19 @@
                 font-weight="500"
                 fill="#f2a51a"
               >
-                em aquisição
+                en cours d'acquisition
               </text>
             </g>
           </svg>
           <p class="src a fade" style="--d: 900">
-            Fontes: AgFeed (2026), AgroTV News (jul. 2026), site da Prima Foods.
-            Ji-Paraná (RO) em aquisição, sujeita ao CADE. Mapa ilustrativo.
+            Sources&nbsp;: AgFeed (2026), AgroTV News (juil. 2026), site de Prima Foods. Ji-Paraná (RO) en cours d'acquisition, sous réserve de l'autorité de la concurrence (CADE). Carte illustrative.
           </p>
         </section>
 
         <!-- 4 · PONTO CEGO -->
         <section class="slide green">
           <div class="pad" style="gap: 28px">
-            <p class="eyebrow a">O ponto cego</p>
+            <p class="eyebrow a">L'angle mort</p>
             <h2
               class="a"
               style="
@@ -940,8 +938,7 @@
                 width: 1560px;
               "
             >
-              Dentro da fábrica, tudo é controlado. Depois que o caminhão sai,
-              quem responde é o motorista.
+              Dans l'usine, tout est contrôlé. Une fois le camion parti, c'est le chauffeur qui répond.
             </h2>
           </div>
           <svg
@@ -1028,7 +1025,7 @@
               fill="#f4f6f5"
               dy="44"
             >
-              Fábrica · controlado
+              Usine · sous contrôle
             </text>
             <g class="drive">
               <g transform="translate(400 160)">
@@ -1101,7 +1098,7 @@
                 padding: 26px 28px;
               "
             >
-              Onde está a carga agora?
+              Où est la marchandise maintenant&nbsp;?
             </p>
             <p
               class="a pop"
@@ -1115,7 +1112,7 @@
                 padding: 26px 28px;
               "
             >
-              Chegou inteira?
+              Est-elle arrivée complète&nbsp;?
             </p>
             <p
               class="a pop"
@@ -1129,7 +1126,7 @@
                 padding: 26px 28px;
               "
             >
-              Na temperatura certa?
+              À la bonne température&nbsp;?
             </p>
             <p
               class="a pop"
@@ -1143,7 +1140,7 @@
                 padding: 26px 28px;
               "
             >
-              Ao cliente certo?
+              Chez le bon client&nbsp;?
             </p>
           </div>
         </section>
@@ -1151,9 +1148,9 @@
         <!-- 5 · PREJUÍZO -->
         <section class="slide dark">
           <div class="pad">
-            <p class="eyebrow a">O tamanho do prejuízo</p>
+            <p class="eyebrow a">L'ampleur des pertes</p>
             <h2 class="h2 a" style="--d: 120; width: 1500px">
-              Alimentos estão entre as cargas mais visadas do Brasil.
+              Les aliments figurent parmi les cargaisons les plus visées du Brésil.
             </h2>
             <div
               style="
@@ -1175,7 +1172,7 @@
                   8.570
                 </p>
                 <p class="lead" style="margin-top: 14px; font-size: 28px">
-                  roubos de carga no país em 2025
+                  vols de fret dans le pays en 2025
                 </p>
               </div>
               <div
@@ -1190,13 +1187,13 @@
                   class="big"
                   style="font-size: 104px"
                   data-count="900"
-                  data-pre="R$ "
-                  data-suf=" mi"
+                  data-pre=""
+                  data-suf=" M R$"
                 >
-                  R$ 900 mi
+                  900 M R$
                 </p>
                 <p class="lead" style="margin-top: 14px; font-size: 28px">
-                  de perda direta, e mais de R$ 1 bi com custos indiretos
+                  de pertes directes, et plus de 1 Md R$ avec les coûts indirects
                 </p>
               </div>
               <div
@@ -1212,12 +1209,12 @@
                   style="font-size: 104px"
                   data-count="24.6"
                   data-dec="1"
-                  data-suf="%"
+                  data-suf=" %"
                 >
                   24,6%
                 </p>
                 <p class="lead" style="margin-top: 14px; font-size: 28px">
-                  das perdas no 1.º semestre de 2026 foram de alimentos
+                  des pertes du 1er semestre 2026 concernaient des aliments
                 </p>
               </div>
             </div>
@@ -1270,25 +1267,22 @@
                 </g>
               </svg>
               <p style="font-size: 32px; line-height: 1.4; color: #b8c1ca">
-                E o roubo ficou mais sofisticado: quadrilhas já usam
-                <b style="color: #f4f6f5">bloqueadores de sinal de GPS</b>.
-                Rastrear só o caminhão não basta mais.
+                Et le vol est devenu plus sophistiqué&nbsp;: les bandes utilisent déjà des
+                <b style="color: #f4f6f5">brouilleurs de signal GPS</b>. Suivre seulement le camion ne suffit plus.
               </p>
             </div>
           </div>
           <p class="src a fade" style="--d: 900">
-            Fontes: NTC&amp;Logística (2025), relatório Nstech via SETCJF (1.º
-            sem. 2026), O Tempo (PRF, jun. 2026). Não há estatística pública
-            separada para carne.
+            Sources&nbsp;: NTC&amp;Logística (2025), rapport Nstech via SETCJF (1er sem. 2026), O Tempo (police routière, juin 2026). Il n'existe pas de statistique publique distincte pour la viande.
           </p>
         </section>
 
         <!-- 6 · EXIGÊNCIA -->
         <section class="slide dark gridbg">
           <div class="pad">
-            <p class="eyebrow a">Quem compra está exigindo</p>
+            <p class="eyebrow a">Les acheteurs l'exigent</p>
             <h2 class="h2 a" style="--d: 120; width: 1500px">
-              O mercado quer saber de onde veio e para onde foi cada caixa.
+              Le marché veut savoir d'où vient et où est allé chaque carton.
             </h2>
             <div
               style="
@@ -1338,15 +1332,13 @@
                     color: #e0243a;
                   "
                 >
-                  CHINA
+                  CHINE
                 </p>
                 <h3 style="font-size: 40px; font-weight: 700; color: #f4f6f5">
-                  Tolerância zero
+                  Tolérance zéro
                 </h3>
                 <p class="lead" style="font-size: 26px">
-                  Em maio de 2026, três frigoríficos brasileiros foram suspensos
-                  por resíduo de hormônio. Responder rápido qual lote foi para
-                  onde pesa na reabilitação.
+                  En mai 2026, trois abattoirs brésiliens ont été suspendus pour résidu d'hormone. Répondre vite quel lot est parti où pèse dans la réhabilitation.
                 </p>
               </div>
               <div
@@ -1397,14 +1389,13 @@
                     color: #00a651;
                   "
                 >
-                  BRASIL
+                  BRÉSIL
                 </p>
                 <h3 style="font-size: 40px; font-weight: 700; color: #f4f6f5">
-                  Gado identificado
+                  Bétail identifié
                 </h3>
                 <p class="lead" style="font-size: 26px">
-                  O plano nacional de identificação individual prevê que, a
-                  partir de 2033, nenhum bovino circule sem identificação.
+                  Le plan national d'identification individuelle prévoit qu'à partir de 2033 aucun bovin ne circule sans identification.
                 </p>
               </div>
               <div
@@ -1447,30 +1438,28 @@
                     color: #8fa3b8;
                   "
                 >
-                  EUROPA
+                  EUROPE
                 </p>
                 <h3 style="font-size: 40px; font-weight: 700; color: #f4f6f5">
-                  Origem comprovada
+                  Origine prouvée
                 </h3>
                 <p class="lead" style="font-size: 26px">
-                  A partir de 30/12/2026, quem vende carne para a União Europeia
-                  precisa provar a origem sem desmatamento.
+                  À partir du 30/12/2026, qui vend de la viande à l'Union européenne doit prouver une origine sans déforestation.
                 </p>
               </div>
             </div>
           </div>
           <p class="src a fade" style="--d: 900">
-            Fontes: Reuters e Globo Rural (mai. 2026), MAPA e Minerva Foods
-            sobre o PNIB, Parlamento Europeu (dez. 2025).
+            Sources&nbsp;: Reuters et Globo Rural (mai 2026), ministère de l'Agriculture et Minerva Foods sur le plan d'identification bovine, Parlement européen (déc. 2025).
           </p>
         </section>
 
         <!-- 7 · FLUXO -->
         <section class="slide light">
           <div class="pad">
-            <p class="eyebrow a">A solução</p>
+            <p class="eyebrow a">La solution</p>
             <h2 class="h2 a" style="--d: 120; width: 1500px">
-              Do abate à entrega, uma corrente sem elo solto.
+              De l'abattage à la livraison, une chaîne sans maillon faible.
             </h2>
           </div>
           <svg
@@ -1623,10 +1612,10 @@
                 1
               </p>
               <h3 style="font-size: 32px; font-weight: 700; margin: 6px 0 10px">
-                Produção
+                Production
               </h3>
               <p style="font-size: 24px; line-height: 1.45; color: #4a525d">
-                O lote do abate vira um QR Code em cada caixa.
+                Le lot d'abattage devient un QR code sur chaque carton.
               </p>
             </div>
             <div class="a" style="--d: 1200">
@@ -1641,11 +1630,10 @@
                 2
               </p>
               <h3 style="font-size: 32px; font-weight: 700; margin: 6px 0 10px">
-                Expedição
+                Expédition
               </h3>
               <p style="font-size: 24px; line-height: 1.45; color: #4a525d">
-                Cada caixa é lida na doca. O caminhão só sai se bater com o
-                pedido.
+                Chaque carton est scanné au quai. Le camion ne part que si tout correspond à la commande.
               </p>
             </div>
             <div class="a" style="--d: 1700">
@@ -1660,10 +1648,10 @@
                 3
               </p>
               <h3 style="font-size: 32px; font-weight: 700; margin: 6px 0 10px">
-                Viagem
+                Trajet
               </h3>
               <p style="font-size: 24px; line-height: 1.45; color: #4a525d">
-                GPS, temperatura do baú, câmera e leitor de QR na porta.
+                GPS, température du caisson, caméra et lecteur de QR à la porte.
               </p>
             </div>
             <div class="a" style="--d: 2200">
@@ -1678,10 +1666,10 @@
                 4
               </p>
               <h3 style="font-size: 32px; font-weight: 700; margin: 6px 0 10px">
-                Entrega
+                Livraison
               </h3>
               <p style="font-size: 24px; line-height: 1.45; color: #4a525d">
-                Leitura, foto, localização e assinatura do cliente.
+                Scan, photo, localisation et signature du client.
               </p>
             </div>
             <div class="a" style="--d: 2700">
@@ -1696,10 +1684,10 @@
                 5
               </p>
               <h3 style="font-size: 32px; font-weight: 700; margin: 6px 0 10px">
-                Painel
+                Tableau de bord
               </h3>
               <p style="font-size: 24px; line-height: 1.45; color: #4a525d">
-                A diretoria vê onde está cada caixa e onde se perde.
+                La direction voit où se trouve chaque carton et où il se perd.
               </p>
             </div>
           </div>
@@ -1715,9 +1703,9 @@
               letter-spacing: -0.5px;
             "
           >
-            Nenhuma caixa sai sem registro.
+            Aucun carton ne sort sans enregistrement.
             <span style="color: #008040"
-              >Nenhuma entrega acontece sem prova.</span
+              >Aucune livraison n'a lieu sans preuve.</span
             >
           </p>
         </section>
@@ -1725,9 +1713,9 @@
         <!-- 8 · CAMINHÃO -->
         <section class="slide dark gridbg">
           <div class="pad">
-            <p class="eyebrow a">O caminhão inteligente</p>
+            <p class="eyebrow a">Le camion intelligent</p>
             <h2 class="h2 a" style="--d: 120; width: 1500px">
-              O baú avisa sozinho quando algo sai do normal.
+              Le caisson alerte tout seul quand quelque chose sort de la normale.
             </h2>
           </div>
           <svg
@@ -1853,7 +1841,7 @@
                   fill="#1a1d22"
                   stroke="#2a2f37"
                 />
-                <text x="192" y="91">Sensor de temperatura</text>
+                <text x="192" y="91">Capteur de température</text>
               </g>
               <g class="a pop" style="--d: 1400">
                 <circle cx="110" cy="190" r="12" fill="#3d8bfd" class="pulse" />
@@ -1868,7 +1856,7 @@
                   fill="#1a1d22"
                   stroke="#2a2f37"
                 />
-                <text x="22" y="131">Câmera no baú</text>
+                <text x="22" y="131">Caméra interne</text>
               </g>
               <g class="a pop" style="--d: 1650">
                 <circle cx="72" cy="330" r="12" fill="#e0243a" class="pulse" />
@@ -1900,7 +1888,7 @@
                 fill="#1a1d22"
                 stroke="#2a2f37"
               />
-              <text x="20" y="435">Leitor de QR na porta</text>
+              <text x="20" y="435">Lecteur QR (porte)</text>
             </g>
           </svg>
           <div
@@ -1933,7 +1921,7 @@
                 "
                 class="blink"
               ></span
-              >Porta aberta fora do ponto de entrega
+              >Porte ouverte hors du point de livraison
             </div>
             <div
               class="a left"
@@ -1953,7 +1941,7 @@
                   background: #f2a51a;
                 "
               ></span
-              >Temperatura do baú fora da faixa
+              >Température du caisson hors plage
             </div>
             <div
               class="a left"
@@ -1973,7 +1961,7 @@
                   background: #f2a51a;
                 "
               ></span
-              >Desvio de rota
+              >Écart d'itinéraire
             </div>
             <div
               class="a left"
@@ -1993,7 +1981,7 @@
                   background: #f2a51a;
                 "
               ></span
-              >Parada não prevista
+              >Arrêt non prévu
             </div>
             <div
               class="card a"
@@ -2005,7 +1993,7 @@
               "
             >
               <p style="font-size: 28px; font-weight: 700; color: #f4f6f5">
-                A câmera como testemunha
+                La caméra comme témoin
               </p>
               <div style="display: flex; gap: 12px; margin: 16px 0">
                 <p
@@ -2018,7 +2006,7 @@
                     padding: 12px 20px;
                   "
                 >
-                  <span data-count="14">14</span> saíram
+                  <span data-count="14">14</span> sortis
                 </p>
                 <p
                   style="
@@ -2030,12 +2018,11 @@
                     padding: 12px 20px;
                   "
                 >
-                  <span data-count="12">12</span> registradas
+                  <span data-count="12">12</span> enregistrés
                 </p>
               </div>
               <p class="lead" style="font-size: 24px">
-                Os números não batem: a diretoria recebe o alerta com o vídeo da
-                descarga.
+                Les chiffres ne concordent pas&nbsp;: la direction reçoit l'alerte avec la vidéo du déchargement.
               </p>
             </div>
           </div>
@@ -2044,9 +2031,9 @@
         <!-- CUSTÓDIA -->
 <section class="slide dark gridbg">
   <div class="pad">
-    <p class="eyebrow a">Cadeia de custódia</p>
+    <p class="eyebrow a">Chaîne de responsabilité</p>
     <h2 class="h2 a" style="--d: 120; width: 1600px">
-      Cada passagem da carga tem dono, hora e lugar.
+      À chaque transfert&nbsp;: qui, quand et où.
     </h2>
   </div>
   <div
@@ -2108,11 +2095,10 @@
       </svg>
       <div>
         <h3 style="font-size: 32px; font-weight: 700; color: #f4f6f5">
-          Lacre eletrônico na porta
+          Scellé électronique sur la porte
         </h3>
         <p class="lead" style="font-size: 24px; margin-top: 6px">
-          O baú é lacrado na doca, ligado à viagem. Abriu fora do endereço do
-          cliente, o alerta sai na hora com o local.
+          Le caisson est scellé au quai, lié au trajet. S'il s'ouvre hors de l'adresse du client, l'alerte part aussitôt avec le lieu.
         </p>
       </div>
     </div>
@@ -2141,12 +2127,10 @@
       </svg>
       <div>
         <h3 style="font-size: 32px; font-weight: 700; color: #f4f6f5">
-          Caixa sentinela
+          Carton sentinelle
         </h3>
         <p class="lead" style="font-size: 24px; margin-top: 6px">
-          Um rastreador escondido em algumas caixas. Se a carga for desviada ou
-          trocar de caminhão, ela continua dizendo onde está, mesmo com o GPS do
-          caminhão bloqueado.
+          Un traceur caché dans certains cartons. Si la marchandise est détournée ou change de camion, il continue d'indiquer où elle est, même si le GPS du camion est brouillé.
         </p>
       </div>
     </div>
@@ -2196,11 +2180,10 @@
       </svg>
       <div>
         <h3 style="font-size: 32px; font-weight: 700; color: #f4f6f5">
-          Quem entregou, quem recebeu
+          Qui a livré, qui a reçu
         </h3>
         <p class="lead" style="font-size: 24px; margin-top: 6px">
-          Cada passagem registra os responsáveis, a hora e o local, da doca até
-          o cliente.
+          Chaque transfert enregistre les responsables, l'heure et le lieu, du quai au client.
         </p>
       </div>
     </div>
@@ -2225,7 +2208,7 @@
         letter-spacing: 2px;
       "
     >
-      VIAGEM RTF2A41 · EXEMPLO
+      TRAJET RTF2A41 · EXEMPLE
     </p>
     <div
       style="
@@ -2237,18 +2220,18 @@
     >
       <div>
         <p class="big" style="font-size: 76px" data-count="50">50</p>
-        <p class="lead" style="font-size: 24px; margin-top: 8px">expedidas</p>
+        <p class="lead" style="font-size: 24px; margin-top: 8px">expédiés</p>
       </div>
       <div>
         <p class="big" style="font-size: 76px" data-count="48">48</p>
-        <p class="lead" style="font-size: 24px; margin-top: 8px">recebidas</p>
+        <p class="lead" style="font-size: 24px; margin-top: 8px">reçus</p>
       </div>
       <div>
         <p class="big" style="font-size: 76px; color: #ff8a98" data-count="2">
           2
         </p>
         <p style="font-size: 24px; margin-top: 8px; color: #ff8a98">
-          divergentes
+          en écart
         </p>
       </div>
     </div>
@@ -2257,21 +2240,17 @@
       style="display: flex; flex-direction: column; gap: 16px; font-size: 24px"
     >
       <p class="a left" style="--d: 1400">
-        <b style="color: #00a651">09:41</b> · Doca 3: lacre fechado, 50 caixas
-        conferidas
+        <b style="color: #00a651">09:41</b> · Quai 3&nbsp;: scellé posé, 50 cartons vérifiés
       </p>
       <p class="a left" style="--d: 1700">
-        <b style="color: #e0243a" class="blink">11:58</b> · Porta aberta fora do
-        ponto, SP-330
+        <b style="color: #e0243a" class="blink">11:58</b> · Porte ouverte hors du point, SP-330
       </p>
       <p class="a left" style="--d: 2000">
-        <b style="color: #00a651">14:32</b> · Entrega: 48 caixas lidas, foto e
-        assinatura
+        <b style="color: #00a651">14:32</b> · Livraison&nbsp;: 48 cartons scannés, photo et signature
       </p>
     </div>
     <p class="lead a fade" style="--d: 2300; font-size: 24px; margin-top: 24px">
-      A divergência aparece com todos os eventos da viagem guardados para
-      auditoria.
+      L'écart apparaît avec tous les événements du trajet conservés pour l'audit.
     </p>
   </div>
 </section>
@@ -2279,28 +2258,28 @@
 
 <!-- 9 a 12 · TELAS -->
         <section class="slide dark">
-          <img class="kb" src="assets/tela-1.jpg" alt="Painel da diretoria" />
+          <img class="kb" src="../assets/fr/tela-1.jpg" alt="Tableau de bord de la direction" />
         </section>
         <section class="slide dark">
-          <img class="kb" src="assets/tela-2.jpg" alt="Expedição na doca" />
+          <img class="kb" src="../assets/fr/tela-2.jpg" alt="Expédition au quai" />
         </section>
         <section class="slide dark">
           <img
             class="kb"
-            src="assets/tela-3.jpg"
-            alt="Aplicativo do motorista"
+            src="../assets/fr/tela-3.jpg"
+            alt="Application du chauffeur"
           />
         </section>
         <section class="slide dark">
-          <img class="kb" src="assets/tela-4.jpg" alt="Rastreio de um lote" />
+          <img class="kb" src="../assets/fr/tela-4.jpg" alt="Traçabilité d'un lot" />
         </section>
 
         <!-- COMO MONTAMOS -->
 <section class="slide light">
   <div class="pad">
-    <p class="eyebrow a">Como montamos</p>
+    <p class="eyebrow a">Comment nous l'installons</p>
     <h2 class="h2 a" style="--d: 120; width: 1660px">
-      Equipamento profissional de mercado, testado no baú de verdade.
+      Du matériel professionnel du marché, testé dans un vrai caisson.
     </h2>
     <div
       style="
@@ -2352,7 +2331,7 @@
             margin: 18px 0 14px;
           "
         >
-          No caminhão
+          Dans le camion
         </h3>
         <div
           style="
@@ -2364,11 +2343,11 @@
             color: #3f4752;
           "
         >
-          <p>• Rastreador profissional ligado à bateria: GPS e 4G</p>
-          <p>• Sensor de temperatura e sensor de porta</p>
-          <p>• Lacre eletrônico no baú</p>
-          <p>• Alerta de bloqueador de GPS</p>
-          <p>• Câmera que conta as caixas</p>
+          <p>• Traceur professionnel branché sur la batterie&nbsp;: GPS et 4G</p>
+          <p>• Capteur de température et capteur de porte</p>
+          <p>• Scellé électronique sur le caisson</p>
+          <p>• Alerte de brouilleur GPS</p>
+          <p>• Caméra qui compte les cartons</p>
         </div>
       </div>
       <div class="card a" style="--d: 500; padding: 36px">
@@ -2393,7 +2372,7 @@
             margin: 18px 0 14px;
           "
         >
-          Na carga
+          Dans la marchandise
         </h3>
         <div
           style="
@@ -2405,9 +2384,9 @@
             color: #3f4752;
           "
         >
-          <p>• QR Code em cada caixa, ligado ao lote</p>
-          <p>• Caixas sentinela com rastreador e bateria própria</p>
-          <p>• Continuam informando mesmo fora do caminhão</p>
+          <p>• QR code sur chaque carton, lié au lot</p>
+          <p>• Cartons sentinelles avec traceur et batterie autonome</p>
+          <p>• Continuent d'émettre même hors du camion</p>
         </div>
       </div>
       <div
@@ -2444,7 +2423,7 @@
             margin: 18px 0 14px;
           "
         >
-          Na plataforma
+          Sur la plateforme
         </h3>
         <div
           style="
@@ -2456,10 +2435,10 @@
             color: #b8c1ca;
           "
         >
-          <p>• Regras e alertas em tempo real</p>
-          <p>• Provas com data, hora e local</p>
-          <p>• Painel, app da doca e app do motorista</p>
-          <p>• Funciona sem sinal e envia depois</p>
+          <p>• Règles et alertes en temps réel</p>
+          <p>• Preuves avec date, heure et lieu</p>
+          <p>• Tableau de bord, appli du quai et appli du chauffeur</p>
+          <p>• Fonctionne sans réseau et envoie ensuite</p>
         </div>
       </div>
     </div>
@@ -2491,10 +2470,9 @@
       </svg>
       <p style="font-size: 26px; line-height: 1.4; color: #15181d">
         <b
-          >Antes de escolher o equipamento, testamos dentro de um baú real e nas
-          rotas reais.</b
+          >Avant de choisir le matériel, nous le testons dans un vrai caisson et sur les vrais trajets.</b
         >
-        Metal e frio atrapalham o sinal; o teste decide o modelo.
+        Le métal et le froid gênent le signal&nbsp;; le test décide du modèle.
       </p>
     </div>
   </div>
@@ -2503,9 +2481,9 @@
 <!-- 13 · DIFERENCIAL -->
         <section class="slide light">
           <div class="pad">
-            <p class="eyebrow a">Por que nós</p>
+            <p class="eyebrow a">Pourquoi nous</p>
             <h2 class="h2 a" style="--d: 120; width: 1500px">
-              Os outros rastreiam o caminhão. Nós rastreamos a caixa.
+              Les autres suivent le camion. Nous suivons le carton.
             </h2>
             <div
               style="
@@ -2524,7 +2502,7 @@
                     margin-bottom: 22px;
                   "
                 >
-                  Rastreador de frota comum
+                  Traceur de flotte classique
                 </p>
                 <svg width="100%" height="150" viewBox="0 0 700 150">
                   <path
@@ -2551,7 +2529,7 @@
                     font-size="22"
                     fill="#6f7a85"
                   >
-                    Sabe onde está o caminhão
+                    Sait où est le camion
                   </text>
                 </svg>
                 <div
@@ -2564,12 +2542,12 @@
                     color: #4a525d;
                   "
                 >
-                  <p>✓ Onde está o caminhão</p>
-                  <p>✓ Temperatura do baú</p>
+                  <p>✓ Où est le camion</p>
+                  <p>✓ Température du caisson</p>
                   <p style="color: #b0112a">
-                    ✕ Qual caixa está em cada caminhão
+                    ✕ Quel carton est dans quel camion
                   </p>
-                  <p style="color: #b0112a">✕ Prova de cada entrega</p>
+                  <p style="color: #b0112a">✕ Preuve de chaque livraison</p>
                 </div>
               </div>
               <div
@@ -2710,7 +2688,7 @@
                     fill="#008040"
                     font-weight="600"
                   >
-                    Sabe onde está cada caixa
+                    Sait où est chaque carton
                   </text>
                 </svg>
                 <div
@@ -2723,23 +2701,23 @@
                     color: #15181d;
                   "
                 >
-                  <p>✓ Onde está o caminhão e a temperatura</p>
-                  <p>✓ Qual caixa está em cada caminhão</p>
-                  <p>✓ Caminhão só sai com o pedido conferido</p>
-                  <p>✓ Prova de entrega com foto, local e assinatura</p>
+                  <p>✓ Où est le camion et la température</p>
+                  <p>✓ Quel carton est dans quel camion</p>
+                  <p>✓ Le camion ne part qu'avec la commande vérifiée</p>
+                  <p>✓ Preuve de livraison avec photo, lieu et signature</p>
                 </div>
               </div>
             </div>
           </div>
           <p class="src a fade" style="--d: 900">
-            Comparação com o material público dos rastreadores de frota mais usados no mercado. Rastreador comum: de R$ 30 a mais de R$ 100 por veículo por mês.
+            Comparaison avec la documentation publique des traceurs de flotte les plus utilisés du marché. Traceur classique&nbsp;: de 30 à plus de 100 R$ par véhicule et par mois.
           </p>
         </section>
 
         <!-- 14 · FAZENDA -->
         <section class="slide dark gridbg">
           <div class="pad">
-            <p class="eyebrow a">Fase 2</p>
+            <p class="eyebrow a">Phase 2</p>
             <h2
               class="a"
               style="
@@ -2752,7 +2730,7 @@
                 margin-top: 16px;
               "
             >
-              Hoje, da fábrica ao cliente. Amanhã, da fazenda ao cliente.
+              Aujourd'hui, de l'usine au client. Demain, de l'élevage au client.
             </h2>
           </div>
           <svg
@@ -2788,7 +2766,7 @@
               class="a fade"
               style="--d: 1400"
             >
-              HOJE
+              AUJOURD'HUI
             </text>
             <path
               d="M60 280 H1600"
@@ -2932,11 +2910,11 @@
               color: #eef1f3;
             "
           >
-            <p class="a" style="--d: 2300; color: #f2a51a">Fazenda</p>
-            <p class="a" style="--d: 400">Abate</p>
-            <p class="a" style="--d: 550">Caixa</p>
-            <p class="a" style="--d: 700">Caminhão</p>
-            <p class="a" style="--d: 850">Cliente</p>
+            <p class="a" style="--d: 2300; color: #f2a51a">Élevage</p>
+            <p class="a" style="--d: 400">Abattage</p>
+            <p class="a" style="--d: 550">Carton</p>
+            <p class="a" style="--d: 700">Camion</p>
+            <p class="a" style="--d: 850">Client</p>
           </div>
           <div
             style="
@@ -2963,7 +2941,7 @@
                 padding: 24px 28px;
               "
             >
-              Nota de risco para cada fazenda fornecedora
+              Note de risque pour chaque élevage fournisseur
             </p>
             <p
               class="a pop"
@@ -2979,7 +2957,7 @@
                 padding: 24px 28px;
               "
             >
-              Animal em prazo de espera fica fora do lote da China
+              L'animal en délai d'attente reste hors du lot pour la Chine
             </p>
             <p
               class="a pop"
@@ -2995,7 +2973,7 @@
                 padding: 24px 28px;
               "
             >
-              Indica quais lotes testar antes do embarque
+              Indique quels lots tester avant l'embarquement
             </p>
           </div>
         </section>
@@ -3004,17 +2982,17 @@
         <section class="slide dark">
           <img
             class="kb"
-            src="assets/tela-5.jpg"
-            alt="Fornecedores de gado e risco sanitário"
+            src="../assets/fr/tela-5.jpg"
+            alt="Fournisseurs de bétail et risque sanitaire"
           />
         </section>
 
         <!-- 16 · PILOTO -->
         <section class="slide light">
           <div class="pad">
-            <p class="eyebrow a">A proposta</p>
+            <p class="eyebrow a">La proposition</p>
             <h2 class="h2 a" style="--d: 120; width: 1500px">
-              Piloto de 90 dias, com resultado medido.
+              Pilote de 90 jours, avec un résultat mesuré.
             </h2>
             <div
               class="a"
@@ -3057,7 +3035,7 @@
                   color: #008040;
                 "
               >
-                Dia 1 · instalação
+                Jour 1 · installation
               </div>
               <div
                 style="
@@ -3069,7 +3047,7 @@
                   color: #15181d;
                 "
               >
-                Dia 30 · operação
+                Jour 30 · exploitation
               </div>
               <div
                 style="
@@ -3081,7 +3059,7 @@
                   color: #15181d;
                 "
               >
-                Dia 60 · ajustes
+                Jour 60 · ajustements
               </div>
               <div
                 style="
@@ -3093,7 +3071,7 @@
                   color: #15181d;
                 "
               >
-                Dia 90 · resultado
+                Jour 90 · résultat
               </div>
               <div
                 style="
@@ -3143,7 +3121,7 @@
             >
               <div class="card a" style="--d: 800">
                 <h3 style="font-size: 36px; font-weight: 700; color: #008040">
-                  Escopo
+                  Périmètre
                 </h3>
                 <p
                   style="
@@ -3153,12 +3131,12 @@
                     margin-top: 14px;
                   "
                 >
-                  Uma unidade escolhida junto com vocês, de 5 a 10 caminhões e suas rotas.
+                  Un site choisi avec vous, de 5 à 10 camions et leurs trajets.
                 </p>
               </div>
               <div class="card a" style="--d: 950">
                 <h3 style="font-size: 36px; font-weight: 700; color: #008040">
-                  O que entra
+                  Ce qui est inclus
                 </h3>
                 <p
                   style="
@@ -3168,13 +3146,12 @@
                     margin-top: 14px;
                   "
                 >
-                  QR por caixa, conferência na doca, caminhões com GPS,
-                  temperatura e câmera, aplicativo do motorista e painel.
+                  QR par carton, contrôle au quai, camions avec GPS, température et caméra, application du chauffeur et tableau de bord.
                 </p>
               </div>
               <div class="card a" style="--d: 1100">
                 <h3 style="font-size: 36px; font-weight: 700; color: #008040">
-                  O que medimos
+                  Ce que nous mesurons
                 </h3>
                 <p
                   style="
@@ -3184,8 +3161,7 @@
                     margin-top: 14px;
                   "
                 >
-                  Caixas divergentes, reclamações de clientes, ocorrências de
-                  temperatura e tempo para saber onde está a carga.
+                  Cartons en écart, réclamations des clients, incidents de température et temps pour savoir où est la marchandise.
                 </p>
               </div>
             </div>
@@ -3203,13 +3179,13 @@
               "
             >
               <p style="font-size: 28px; font-weight: 600; color: #f4f6f5">
-                Investimento do piloto:
+                Investissement du pilote&nbsp;:
               </p>
               <p style="font-size: 28px; font-weight: 750; color: #00a651">
                 [R$ ____]
               </p>
               <p style="font-size: 24px; color: #9aa4ae">
-                · indicadores combinados antes de começar
+                · indicateurs convenus avant de commencer
               </p>
             </div>
           </div>
@@ -3219,7 +3195,7 @@
         <section class="slide dark gridbg">
           <div class="pad" style="justify-content: center; gap: 64px">
             <div>
-              <p class="eyebrow a">Próximo passo</p>
+              <p class="eyebrow a">Prochaine étape</p>
               <h2
                 class="a"
                 style="
@@ -3232,7 +3208,7 @@
                   margin-top: 16px;
                 "
               >
-                Uma visita técnica à expedição.
+                Une visite technique de l'expédition.
               </h2>
             </div>
             <div
@@ -3276,7 +3252,7 @@
                   1
                 </div>
                 <p style="font-size: 30px; line-height: 1.4; margin-top: 24px">
-                  Visita técnica à doca e aos caminhões, na próxima semana
+                  Visite technique du quai et des camions, la semaine prochaine
                 </p>
               </div>
               <div class="a pop" style="--d: 1300; position: relative">
@@ -3296,7 +3272,7 @@
                   2
                 </div>
                 <p style="font-size: 30px; line-height: 1.4; margin-top: 24px">
-                  Números de perda de vocês e escolha das rotas do piloto
+                  Vos chiffres de pertes et choix des trajets du pilote
                 </p>
               </div>
               <div class="a pop" style="--d: 2000; position: relative">
@@ -3316,7 +3292,7 @@
                   3
                 </div>
                 <p style="font-size: 30px; line-height: 1.4; margin-top: 24px">
-                  Início do piloto de 90 dias
+                  Démarrage du pilote de 90 jours
                 </p>
               </div>
             </div>
@@ -3330,17 +3306,17 @@
               bottom: 64px;
               height: 56px;
             "
-            src="assets/iw-logo.png"
+            src="../assets/iw-logo.png"
             alt="Infinite World"
           />
         </section>
       </div>
     </div>
     <div id="bar">
-      <button id="prev" aria-label="Slide anterior">&#8592;</button>
+      <button id="prev" aria-label="Diapositive précédente">&#8592;</button>
       <span id="num"></span>
-      <button id="next" aria-label="Próximo slide">&#8594;</button>
-      <button id="fs" aria-label="Tela cheia">&#x26F6;</button>
+      <button id="next" aria-label="Diapositive suivante">&#8594;</button>
+      <button id="fs" aria-label="Plein écran">&#x26F6;</button>
     </div>
     <style>
       .bar90 {
@@ -3367,7 +3343,7 @@
           "scale(" + Math.min(innerWidth / 1920, innerHeight / 1080) + ")";
       }
       const fmt = (v, dec) =>
-        v.toLocaleString("pt-BR", {
+        v.toLocaleString("fr-FR", {
           minimumFractionDigits: dec,
           maximumFractionDigits: dec,
         });
